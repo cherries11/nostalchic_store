@@ -7,7 +7,7 @@ const Orders = async () => {
   const { userId } = auth();
   const orders = await getOrders(userId as string);
 
-  console.log(orders[0].products);
+  //console.log(orders[0].products);
 
   return (
     <div className="px-10 py-5 max-sm:px-3">
@@ -28,8 +28,8 @@ const Orders = async () => {
             </div>
 
             <div className="flex flex-col gap-5">
-              {order.products.map((orderItem: OrderItemType, url) => (
-                <div key={url} className="flex gap-4">
+              {order.products.map((orderItem: OrderItemType) => (
+                <div className="flex gap-4">
                   <Image
                     src={orderItem.product.media[0]}
                     alt={orderItem.product.title}
